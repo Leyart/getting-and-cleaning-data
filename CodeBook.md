@@ -88,26 +88,22 @@ A final dataset is created by averaging each numeric feature for each activity a
 Ddply with numcolwise(mean) applies the mean column by column for each numerical column
 over the data grouped by Subject and Activity and then combines the result into a data frame.
 
-The following table relates the 17 signals to the names used as prefix for the
-variables names present in the data set. ".XYZ" denotes three variables, one for each axis.
+The following table lists the 17 signals represented in the features to the variables names
+present in the dataset. ".XYZ" denotes the three variables (separated in different columns) that represent each axis.
+".TYPE" denotes if the column is related to the mean or standard deviation for the considered feature.
 
-Name                                  | Time domain                                 | Frequency domain
-------------------------------------- | ------------------------------------------- | ------------------------------------------------
-Body Acceleration                     | TimeDomain.BodyAcceleration.XYZ             | FrequencyDomain.BodyAcceleration.XYZ
-Gravity Acceleration                  | TimeDomain.GravityAcceleration.XYZ          |
-Body Acceleration Jerk                | TimeDomain.BodyAccelerationJerk.XYZ         | FrequencyDomain.BodyAccelerationJerk.XYZ
-Body Angular Speed                    | TimeDomain.BodyAngularSpeed.XYZ             | FrequencyDomain.BodyAngularSpeed.XYZ
-Body Angular Acceleration             | TimeDomain.BodyAngularAcceleration.XYZ      |
-Body Acceleration Magnitude           | TimeDomain.BodyAccelerationMagnitude        | FrequencyDomain.BodyAccelerationMagnitude
-Gravity Acceleration Magnitude        | TimeDomain.GravityAccelerationMagnitude     |
-Body Acceleration Jerk Magnitude      | TimeDomain.BodyAccelerationJerkMagnitude    | FrequencyDomain.BodyAccelerationJerkMagnitude
-Body Angular Speed Magnitude          | TimeDomain.BodyAngularSpeedMagnitude        | FrequencyDomain.BodyAngularSpeedMagnitude
-Body Angular Acceleration Magnitude   | TimeDomain.BodyAngularAccelerationMagnitude | FrequencyDomain.BodyAngularAccelerationMagnitude
-
-For variables derived from mean and standard deviation estimation, the previous labels
-are augmented with the terms "Mean" or "StandardDeviation".
-
-The data set is written to the file sensor_avg_by_act_sub.txt.
+Name                                  | Time domain                            | Frequency domain
+------------------------------------- | -------------------------------------- | ------------------------------------------------
+Body Acceleration                     | TimeD.BodyAcceleration.TYPE.XYZ        | FrequencyD.BodyAcceleration.TYPE.XYZ
+Gravity Acceleration                  | TimeD.GravityAcceleration.TYPE.XYZ     |
+Body Acceleration Jerk                | TimeD.BodyAccelerationJerk.TYPE.XYZ    | FrequencyD.BodyAccelerationJerk.TYPE.XYZ
+Body Angular Speed                    | TimeD.BodyGyro.TYPE.XYZ                | FrequencyD.BodyGyro.TYPE.XYZ
+Body Angular Acceleration Jerk        | TimeD.BodyGyroJerk.TYPE.XYZ            |
+Body Acceleration Magnitude           | TimeD.BodyAccelerationMagnitude        | FrequencyD.BodyAccelerationMagnitude
+Gravity Acceleration Magnitude        | TimeD.GravityAccelerationMagnitude     |
+Body Acceleration Jerk Magnitude      | TimeD.BodyAccelerationJerkMagnitude    | FrequencyD.BodyAccelerationJerkMagnitude
+Body Angular Speed Magnitude          | TimeD.BodyGyroMagnitude                | FrequencyD.BodyGyroMagnitude
+Body Angular Acceleration Magnitude   | TimeD.BodyGyroJerkMagnitude            | FrequencyD.BodyGyroJerkMagnitude  
 
 
 The data set is finally written to the file "tidyDataset.txt".
