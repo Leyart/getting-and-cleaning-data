@@ -1,7 +1,7 @@
 Code Book
 ========
 
-Raw data collection
+Dataset Information
 -------------------
 
 ### Collection
