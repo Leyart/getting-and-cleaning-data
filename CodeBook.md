@@ -22,7 +22,7 @@ For each record it is provided:
 - An identifier of the subject who carried out the experiment.
 
 #### Notes:
-- Features are normalized and bounded within [-1,1]. *IMPORTANT* For this reason no unit of measurement is reported.
+- Features are normalized and bounded within [-1,1]. __IMPORTANT__ For this reason no unit of measurement is reported.
 - Each feature vector is a row on the text file.
 - The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).
 - The gyroscope units are rad/seg.
@@ -38,10 +38,10 @@ In the following, a description of the steps performed to clean the dataset is p
 
 The first step was to merge together the training datasets by column,
 thus adding all the features that were split into several files in a unique dataframe.
-Cbinds calls were chained to merge training data (X_train.txt), subject ids (subject_train.txt),
+`Cbind`s calls were chained to merge training data (X_train.txt), subject ids (subject_train.txt),
 and activity ids (y_train.txt) in a unique dataset.
 The same operations are performed over the test datasets.
-Finally the two datasets obtained by chaining training and test sets are merged by row
+Finally the two datasets obtained by chaining training and test sets are merged by row with `Rbind`
 to create a unique dataset to be manipulated and filtered.
 Variables are labelled with the names assigned by original the
 original authors (defined in features.txt).
@@ -52,9 +52,9 @@ From the unique dataset that has been created an intermediate dataset with only
 the values of the estimated mean (variables with labels that contain "mean") and
 standard deviation (variables with labels containing "std") are retrieved.
 This is accomplished by filtering the original dataset with a logical vector
-created column-wise using grepl on the aforementioned strings, keeping the Subject
+created column-wise using `grepl` on the aforementioned strings, keeping the Subject
 and the ActivityId also to not lose information regarding the user wearing the device
-and his/her activities.
+and her activities.
 
 ### Meaningful activity names
 
@@ -85,10 +85,10 @@ Each row of the tidy dataset is composed by
 *  A 79-feature vector with time and frequency domain numeric features extracted from the datasets.
 
 A final dataset is created by averaging each numeric feature for each activity and each subject.
-Ddply with numcolwise(mean) applies the mean column by column for each numerical column
+`Ddply` with numcolwise(mean) applies the mean column by column for each numerical column
 over the data grouped by Subject and Activity and then combines the result into a data frame.
 
-The following table lists the 17 signals represented in the features to the variables names
+The following table relates the 17 signals represented in the features to the variables names
 present in the dataset. ".XYZ" denotes the three variables (separated in different columns) that represent each axis.
 ".TYPE" denotes if the column is related to the mean or standard deviation for the considered feature.
 
